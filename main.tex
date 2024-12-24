@@ -1,0 +1,123 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Analyse des Normes CEM Applicables à un Pot Connecté}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{example-image} % Remplacer par le logo du projet si disponible
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section*{Introduction}
+Dans le cadre de notre projet de pot connecté, il est essentiel de garantir la conformité aux réglementations européennes en matière de Compatibilité Électromagnétique (CEM). Ces réglementations permettent de s'assurer que les dispositifs électroniques ne créent pas d'interférences nuisibles tout en étant capables de fonctionner correctement dans des environnements électromagnétiques variés.
+
+Ce document vise à :
+\begin{itemize}
+    \item Identifier les normes applicables à notre projet.
+    \item Proposer des solutions pour réaliser les tests nécessaires avec des équipements coûteux ou économiques.
+    \item Fournir des liens vers les ressources pertinentes pour chaque norme.
+\end{itemize}
+
+\newpage
+
+\section{Normes Applicables}
+Voici les principales normes CEM et leurs objectifs :
+
+\subsection{Directive CEM (2014/30/UE)}
+\begin{itemize}
+    \item \textbf{EN 55032 (CISPR 32)} : Réglemente les émissions électromagnétiques des équipements multimédias.
+    \item \textbf{EN 55035 (CISPR 35)} : Assure l'immunité des dispositifs multimédias face aux perturbations électromagnétiques.
+\end{itemize}
+
+\subsection{Directive Radio (2014/53/UE)}
+\begin{itemize}
+    \item \textbf{EN 301 489-1} : Exigences générales CEM pour les équipements radio.
+    \item \textbf{EN 301 489-17} : Exigences spécifiques pour les équipements Wi-Fi et Bluetooth.
+    \item \textbf{ETSI EN 300 328} : Norme pour les appareils Wi-Fi fonctionnant dans la bande ISM 2,4 GHz.
+\end{itemize}
+
+\subsection{Directive Basse Tension (2014/35/UE)}
+Cette directive concerne les appareils utilisant une alimentation secteur ou fonctionnant au-delà de 50V AC/75V DC. Elle est non applicable à notre projet, alimenté via USB.
+
+\subsection{Normes pour l’Éco-Conception et l’Alimentation Électrique}
+\begin{itemize}
+    \item \textbf{EN 61000-3-2} : Réglemente les émissions de courants harmoniques.
+    \item \textbf{EN 61000-3-3} : Réglemente les fluctuations de tension et le scintillement.
+\end{itemize}
+
+\subsection{Marquage CE}
+Le marquage CE est obligatoire pour la commercialisation en Europe et atteste de la conformité avec :
+\begin{itemize}
+    \item La directive CEM.
+    \item La directive RED.
+    \item D'autres directives applicables comme RoHS.
+\end{itemize}
+
+\newpage
+
+\section{Équipements de Test}
+Voici les options pour les tests CEM, avec des liens vers les ressources associées :
+
+\subsection{Émissions Rayonnées}
+\begin{itemize}
+    \item \textbf{Option coûteuse :}
+          \begin{itemize}
+              \item \href{https://www.keysight.com/us/en/product/N9048B/pxe-emi-receiver-1-hz-44-ghz.html}{Keysight PXE EMI Receiver}.
+              \item \href{https://eleshop.fr/gw-instek-gkt-008-emi-probe-kit.html}{Kit de sondes EMI GW Instek}.
+          \end{itemize}
+    \item \textbf{Option économique :}
+          \begin{itemize}
+              \item \href{https://greatscottgadgets.com/hackrf/one/}{HackRF One}.
+              \item Antenne DIY, tutoriel disponible \href{https://www.youtube.com/watch?v=2xy3Hm1_ZqI}{ici}.
+          \end{itemize}
+\end{itemize}
+
+\subsection{Émissions Conduites}
+\begin{itemize}
+    \item \textbf{Option coûteuse :}
+          \begin{itemize}
+              \item \href{https://www.rohde-schwarz.com/fr/produits/test-et-mesure/tests-conduits/rs-hm6050-two-line-v-network-lisn_63493-48135.html}{Rohde \& Schwarz LISN}.
+          \end{itemize}
+    \item \textbf{Option économique :}
+          \begin{itemize}
+              \item \href{https://hackaday.io/project/181265-diy-cispr-25-lisn}{LISN DIY avec GNU Radio}.
+              \item \href{https://www.elektor.fr/products/elektor-dual-dc-lisn-150-khz-200-mhz#section-info}{LISN DIY Elektor}.
+          \end{itemize}
+\end{itemize}
+
+\subsection{Immunité}
+\begin{itemize}
+    \item \textbf{Option coûteuse :}
+          \begin{itemize}
+              \item \href{https://www.keysight.com/us/en/assets/7018-05702/technical-overviews/5992-2241.pdf}{Générateur de signal Rohde \& Schwarz}.
+          \end{itemize}
+    \item \textbf{Option économique :}
+          \begin{itemize}
+              \item \href{https://www.crowdsupply.com/era-instruments/erasynth-micro}{ESD Gun DIY EraSynth}.
+              \item \href{https://www.amazon.com/Patriot-Electric-Fence-Energizer-Joule/dp/B00D9U8MBW/}{Électrificateur de clôture Patriot}.
+          \end{itemize}
+\end{itemize}
+
+\newpage
+
+\section*{Conclusion}
+Pour garantir la conformité CEM de notre pot connecté, les normes principales sont \textbf{EN 55032} pour les émissions et \textbf{EN 55035} pour l'immunité. Nous avons identifié des équipements adaptés, selon le budget disponible, pour répondre aux exigences réglementaires.
+
+\end{document}
