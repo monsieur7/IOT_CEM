@@ -1,16 +1,17 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage{hyperref}
-\usepackage{graphicx}
-\usepackage{lipsum}
-\usepackage{geometry}
-\geometry{margin=2.5cm}
 
-\title{Analyse des Normes CEM Applicables à un Pot Connecté}
-\author{}
-\date{}
+        \documentclass[a4paper,12pt]{article}
+        \usepackage[utf8]{inputenc}
+        \usepackage[T1]{fontenc}
+        \usepackage[french]{babel}
+        \usepackage{hyperref}
+        \usepackage{graphicx}
+        \usepackage{lipsum}
+        \usepackage{geometry}
+        \geometry{margin=2.5cm}
+
+        \title{Analyse des Normes CEM Applicables à un Pot Connecté}
+        \author{}
+        \date{}
 
 \begin{document}
 
@@ -21,17 +22,17 @@
         % Align images horizontally
         \begin{minipage}{0.4\textwidth}
             \centering
-            \includegraphics[width=0.8\textwidth]{imgs/polytech.png} % Replace with your icon
+            \includegraphics[width=0.8\textwidth]{imgs/polytech.png}
         \end{minipage}
         \hspace{1cm}
         \begin{minipage}{0.4\textwidth}
             \centering
-            \includegraphics[width=0.8\textwidth]{imgs/ub.jpg} % Replace with your icon
+            \includegraphics[width=0.8\textwidth]{imgs/ub.jpg}
         \end{minipage}
 
         \vspace{2cm}
         \Huge
-        \textbf{Analyse des Normes CEM \\ Applicables à un Pot Connecté}
+        \textbf{Analyse des Normes CEM\\Applicables à un Pot Connecté}
 
         \vspace{1cm}
         \Large
@@ -52,10 +53,10 @@
         \textbf{Décembre 2024}
     \end{center}
 \end{titlepage}
+
 \newpage
 \tableofcontents
 \newpage
-
 \newpage
 
 \section*{Introduction}
@@ -69,6 +70,7 @@ Ce rapport a pour objectifs :
     \item Proposer des options pour réaliser les tests nécessaires, avec des solutions adaptées à différents budgets.
 \end{itemize}
 Ce rapport décrirat les normes adaptées pour notre projet dans le cadre d'une utilisation en Union Européenne.
+
 \section{Normes Applicables}
 Les normes applicables à notre projet sont principalement regroupées sous trois grandes directives européennes. Chaque directive couvre des aspects spécifiques de la compatibilité électromagnétique ou des exigences techniques.
 
@@ -109,6 +111,7 @@ Pour la commercialisation dans l'Union européenne, notre dispositif doit porter
 
 \section{Équipements de Test}
 Pour garantir la conformité avec les normes CEM, il est nécessaire de réaliser des tests d’émissions et d’immunité. Selon le budget disponible, voici deux options pour chaque type de test : une option coûteuse pour les laboratoires ou entreprises équipés, et une option économique pour les petits projets ou prototypes.
+
 \subsection{Directive CEM}
 \subsubsection{Émissions Rayonnées}
 \begin{itemize}
@@ -150,7 +153,94 @@ Pour garantir la conformité avec les normes CEM, il est nécessaire de réalise
 
 \newpage
 
+\subsection{Directive RED}
+Pour chaque norme, voici les tests requis et les équipements recommandés pour les réaliser.
+
+\subsubsection{EN 301 489-1 : Exigences Générales de CEM}
+\subsubsection*{Tests Requis :}
+\begin{itemize}
+    \item \textbf{Émissions rayonnées} : Vérifie les émissions dans le spectre radio.
+    \item \textbf{Immunité rayonnée} : Vérifie la résistance aux interférences électromagnétiques.
+    \item \textbf{Émissions conduites} : Vérifie les perturbations transmises par les câbles.
+\end{itemize}
+
+\subsubsection*{Équipements :}
+\begin{itemize}
+    \item \textbf{Option coûteuse :}
+          \begin{itemize}
+              \item Récepteur EMI Keysight PXE (\href{https://www.keysight.com/us/en/product/N9048B/pxe-emi-receiver-1-hz-44-ghz.html}{N9048B}).
+              \item Antennes EMI GW Instek (\href{https://eleshop.fr/gw-instek-gkt-008-emi-probe-kit.html}{Kit GKT-008}).
+          \end{itemize}
+    \item \textbf{Option économique :}
+          \begin{itemize}
+              \item HackRF One (\href{https://greatscottgadgets.com/hackrf/one/}{Lien officiel}).
+              \item Antenne DIY (\href{https://www.youtube.com/watch?v=2xy3Hm1_ZqI}{Tutoriel YouTube}).
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{EN 301 489-17 : Exigences pour Wi-Fi et Bluetooth}
+\subsubsection*{Tests Requis :}
+\begin{itemize}
+    \item \textbf{Brouillage du récepteur} : Vérifie le fonctionnement en présence de signaux forts.
+    \item \textbf{Émissions parasites} : Vérifie que l’appareil n’émet pas en dehors de sa bande allouée.
+\end{itemize}
+
+\subsubsection*{Équipements :}
+\begin{itemize}
+    \item \textbf{Option coûteuse :}
+          \begin{itemize}
+              \item Analyseur de spectre Rohde \& Schwarz FSW (\href{https://www.rohde-schwarz.com/product/FSW.html}{FSW}).
+          \end{itemize}
+    \item \textbf{Option économique :}
+          \begin{itemize}
+              \item RTL-SDR (\href{https://www.rtl-sdr.com/}{Lien officiel}).
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{ETSI EN 300 328 : Appareils Wi-Fi 2,4 GHz}
+\subsubsection*{Tests Requis :}
+\begin{itemize}
+    \item \textbf{Puissance d’émission} : Vérifie que la puissance reste dans les limites légales.
+    \item \textbf{Stabilité de fréquence} : Vérifie que le signal reste dans la bande autorisée.
+    \item \textbf{Taux de fuite dans les bandes adjacentes (ACLR)} : Vérifie les interférences dans les bandes voisines.
+    \item \textbf{Sensibilité du récepteur} : Vérifie le niveau minimal de signal requis pour un fonctionnement correct.
+\end{itemize}
+
+\subsubsection*{Équipements :}
+\begin{itemize}
+    \item \textbf{Option coûteuse :}
+          \begin{itemize}
+              \item Analyseur de spectre Rohde \& Schwarz FSV3000 (\href{https://www.rohde-schwarz.com/product/FSV3000.html}{FSV3000}).
+              \item Wattmètre Keysight N1914A (\href{https://www.keysight.com/us/en/product/N1914A.html}{Lien officiel}).
+          \end{itemize}
+    \item \textbf{Option économique :}
+          \begin{itemize}
+              \item HackRF One (\href{https://greatscottgadgets.com/hackrf/one/}{Lien officiel}).
+              \item Détecteur de puissance RF DIY (\href{https://www.elektor.com/rf-power-meter}{Elektor RF Power Meter}).
+          \end{itemize}
+\end{itemize}
+
+\section{Configuration Recommandée pour les Tests}
+\begin{itemize}
+    \item \textbf{Chambre blindée ou anéchoïque}:
+          \begin{itemize}
+              \item \textbf{Option coûteuse :} Chambres préfabriquées (ex. TDK ou ETS Lindgren).
+              \item \textbf{Option économique :} Enceinte blindée DIY (ex. maillage en cuivre ou mousse absorbante RF).
+          \end{itemize}
+    \item \textbf{Outils logiciels}:
+          \begin{itemize}
+              \item GNU Radio ou SDR\# pour les configurations économiques.
+              \item Logiciels propriétaires pour les équipements coûteux.
+          \end{itemize}
+\end{itemize}
+
 \section*{Conclusion}
 La conformité CEM est essentielle pour garantir la qualité et la sécurité de notre pot connecté. En respectant les normes EN 55032 et EN 55035, et en utilisant des équipements adaptés, nous pouvons répondre aux exigences réglementaires tout en optimisant nos ressources. Ce rapport fournit une base solide pour aborder les tests de conformité et préparer la mise en marché de notre produit.
 
+\end{document}
+\end{itemize}
+
+\section*{Conclusion}
+La conformité CEM est essentielle pour garantir la qualité et la sécurité de notre pot connecté. En respectant les normes EN 55032 et EN 55035, et en utilisant des équipements adaptés, nous pouvons répondre aux exigences réglementaires tout en optimisant nos ressources. Ce rapport fournit une base solide pour aborder les tests de conformité et préparer la mise en marché de notre produit.
+%a refaire pour la conclusion en y ajoutant les autres normes 
 \end{document}
