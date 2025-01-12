@@ -60,9 +60,11 @@
 \newpage
 
 \section*{Introduction}
-Dans un monde où les technologies connectées jouent un rôle central, le respect des normes de Compatibilité Électromagnétique (CEM) est devenu un impératif pour garantir la qualité et la sécurité des appareils électroniques. Dans le cadre de notre projet de pot connecté, il est crucial de s'assurer que notre dispositif respecte les exigences européennes en matière de CEM.
+Dans un monde où les technologies connectées jouent un rôle central, le respect des normes de Compatibilité Électromagnétique (CEM) est devenu un impératif pour garantir la qualité et la sécurité des appareils électroniques.
+Dans le cadre de notre projet de pot connecté, il est crucial de s'assurer que notre dispositif respecte les exigences européennes en matière de CEM.
 
-Les normes CEM visent à prévenir les interférences nuisibles entre les appareils électroniques tout en garantissant leur bon fonctionnement dans des environnements variés. Elles sont également essentielles pour obtenir le marquage CE, indispensable pour la commercialisation dans l'Union européenne.
+Les normes CEM visent à prévenir les interférences nuisibles entre les appareils électroniques tout en garantissant leur bon fonctionnement dans des environnements variés.
+Elles sont également essentielles pour obtenir le marquage CE, indispensable pour la commercialisation dans l'Union européenne.
 
 Ce rapport a pour objectifs :
 \begin{itemize}
@@ -72,48 +74,89 @@ Ce rapport a pour objectifs :
 Ce rapport décrirat les normes adaptées pour notre projet dans le cadre d'une utilisation en Union Européenne.
 
 \section{Normes Applicables}
-Les normes applicables à notre projet sont principalement regroupées sous trois grandes directives européennes. Chaque directive couvre des aspects spécifiques de la compatibilité électromagnétique ou des exigences techniques.
+Les normes applicables à notre projet sont principalement regroupées sous trois grandes directives européennes. Chaque directive couvre des aspects spécifiques de la compatibilité électromagnétique.
 
 \subsection{Directive CEM (2014/30/UE)}
-La directive CEM impose que tous les appareils électroniques respectent des limites d'émissions électromagnétiques et qu'ils soient capables de fonctionner correctement dans des environnements perturbés. Les normes principales associées à cette directive sont :
-\begin{itemize}
-    \item \textbf{EN 55032 (CISPR 32)} : Elle encadre les émissions électromagnétiques des équipements multimédias afin de limiter les interférences avec d'autres appareils.
-    \item \textbf{EN 55035 (CISPR 35)} : Elle garantit l'immunité des appareils multimédias face aux perturbations électromagnétiques externes.
-\end{itemize}
+La directive CEM impose que tous les appareils électroniques respectent des limites d'émissions électromagnétiques et qu'ils soient capables de fonctionner correctement dans des environnements à fort champ électromagnétique.
+Voici la liste des normes associés : % a traduire stp
+\begin{enumerate}
+    \item \textbf{EN 61000-6-1:2007} \\
+          Generic standards - Immunity for residential, commercial, and light-industrial environments.
 
+    \item \textbf{EN 61000-6-3:2007} \\
+          Generic standards - Emission standard for residential, commercial, and light-industrial environments.
+
+    \item \textbf{EN 50491-5-2:2010} \\
+          EMC requirements for home and building electronic systems (HBES) used in residential environments.
+\end{enumerate}
+Voici la liste générale des tests requis par ces normes, applicable à notre cas.
+\section{Tests pour la norme EN 61000-6-1:2007 (Immunité)}
+\begin{enumerate}
+    \item Tests d'immunité aux décharges électrostatiques.
+    \item Tests d'immunité aux champs magnétiques.
+    \item Tests d'immunité aux radiofréquences (modulation d'amplitude).
+    \item Tests sur le port USB d'alimentation :
+          \begin{enumerate}
+              \item Immunité aux perturbations RF en mode commun.
+              \item Immunité aux perturbations transientes rapides.
+              \item Immunité aux perturbations transientes (surge).
+          \end{enumerate}
+\end{enumerate}
+\section{Tests pour la norme EN 61000-6-3:2007 (Émissions)}
+\begin{enumerate}
+    \item Tests d'émissions rayonnées, sur différentes fréquences.
+    \item Tests d'émissions conduites, sur différentes fréquences. (sur le port USB d'alimentation dans notre cas)
+\end{enumerate}
+
+\section{Tests pour la norme EN 50491-5-2:2010 (Compatibilité HBES/BACS)}
+\begin{enumerate}
+    \item \textbf{Tests d'immunité} \\
+          Inclut : décharges électrostatiques, radiofréquences, champ magnétique, perturbations conduites et transitoires
+          Selon chaque élemént de notre pot, il faudra réaliser les tests correspondants.
+          Pour la "boite"
+          \begin{enumerate}
+              \item Champ magnétique
+              \item radiofréquences en modulation d'amplitude
+              \item décharge électrostatique
+          \end{enumerate}
+          Port USB :
+          \begin{enumerate}
+              \item Perturbations RF en mode commun
+              \item Perturbations transientes rapides
+              \item Perturbations transientes (surge)
+          \end{enumerate}
+\end{enumerate}
 \subsection{Directive Radio (2014/53/UE)}
-Puisque notre pot connecté utilise le Wi-Fi, il est soumis aux normes de la Directive Radio. Cette directive assure que les équipements radio respectent des exigences strictes en matière de CEM et de performance dans les bandes de fréquences concernées :
-\begin{itemize}
-    \item \textbf{EN 301 489-1} : Norme générale sur la CEM pour les équipements radio.
-    \item \textbf{EN 301 489-17} : Norme spécifique aux dispositifs Wi-Fi et Bluetooth.
-    \item \textbf{ETSI EN 300 328} : Exigences techniques pour les appareils Wi-Fi opérant dans la bande ISM 2,4 GHz.
-\end{itemize}
-
+Puisque notre pot connecté utilise le Wi-Fi, il est soumis aux normes de la Directive Radio. Cette directive assure que les équipements radio respectent des exigences strictes en matière de CEM
+et de performance dans les bandes de fréquences concernées.
+% sortir la liste des normes svp ici 
 \subsection{Directive Basse Tension (2014/35/UE)}
 Cette directive s'applique aux équipements utilisant des tensions supérieures à 50V AC ou 75V DC. Toutefois, notre projet étant alimenté par USB, cette directive n'est pas directement applicable.
 \section{Normes Supplémentaires}
+Par contre, vu que notre pot connecté utilise une batterie lithium, d'autres normes sont applicables.
 \begin{itemize}
-    \item \textbf{EN 61000-6-1} : Exigences générales d'immunité pour les environnements résidentiels, commerciaux et industriels légers.
-    \item \textbf{EN 61000-6-3} : Limites d'émissions pour ces mêmes environnements.
     \item \textbf{IEC 62133 / IEC 62619} : Normes de sécurité pour les batteries rechargeables, notamment les batteries lithium-ion.
           \begin{itemize}
               \item Ces normes incluent des tests de surcharge, de protection contre les courts-circuits et de gestion des risques thermiques, en particulier pour les batteries lithium-ion, qui sont utilisés dans notre pot connecté.
           \end{itemize}
 \end{itemize}
+Ces normes sortent du simple cadre de la CEM, mais leur respect est essentiel pour garantir la sécurité et le bon fonctionnement de notre produit.
 \subsection{Marquage CE}
-Pour la commercialisation dans l'Union européenne, notre dispositif doit porter le marquage CE, qui atteste de sa conformité avec les directives :
+Pour la commercialisation dans l'Union européenne, notre dispositif doit porter le marquage CE, qui atteste de sa conformité avec l'ensemble des directives applicables à notre produit :
 \begin{itemize}
     \item Directive CEM.
     \item Directive Radio.
-    \item Toute autre directive applicable, telle que RoHS pour la limitation des substances dangereuses, par exemple le plomb dans les soudures.
+    \item Directives environnementales (RoHS, REACH).
 \end{itemize}
 
 \newpage
 
 \section{Équipements de Test}
-Pour garantir la conformité avec les normes CEM, il est nécessaire de réaliser des tests d’émissions et d’immunité. Selon le budget disponible, voici deux options pour chaque type de test : une option coûteuse pour les laboratoires ou entreprises équipés, et une option économique pour les petits projets ou prototypes.
+Pour garantir la conformité avec les normes CEM, il est nécessaire de réaliser un ensemble de tests Selon le budget disponible, ce rapport présente deux options pour chaque type de test : une option coûteuse, et une option low cost.
 
 \subsection{Directive CEM}
+% matcher les tests avec les normes et proposer des équipements pour les réaliser
+%on peut aussi faire 1 partie test et 1 partie equipements , pour éviter les répétitions
 \subsubsection{Émissions Rayonnées}
 \begin{itemize}
     \item \textbf{Option coûteuse :}
@@ -123,8 +166,8 @@ Pour garantir la conformité avec les normes CEM, il est nécessaire de réalise
           \end{itemize}
     \item \textbf{Option économique :}
           \begin{itemize}
-              \item \href{https://greatscottgadgets.com/hackrf/one/}{HackRF One} : Un SDR polyvalent pour une analyse simple des émissions.
-              \item \href{https://www.youtube.com/watch?v=2xy3Hm1_ZqI}{Antenne DIY} : Un tutoriel pour créer une antenne à faible coût.
+              \item \href{https://greatscottgadgets.com/hackrf/one/}{HackRF One} : Un SDR (Software Defined Radio) polyvalent et abordable.
+              \item \href{https://www.youtube.com/watch?v=2xy3Hm1_ZqI}{Antenne DIY} : Sonde simple à fabriquer en DIY.
           \end{itemize}
 \end{itemize}
 
@@ -133,10 +176,12 @@ Pour garantir la conformité avec les normes CEM, il est nécessaire de réalise
     \item \textbf{Option coûteuse :}
           \begin{itemize}
               \item \href{https://www.rohde-schwarz.com/fr/produits/test-et-mesure/tests-conduits/rs-hm6050-two-line-v-network-lisn_63493-48135.html}{Rohde \& Schwarz LISN} : Réseau de stabilisation d'impédance pour les tests précis.
+                    % surrement d'autres trucs ici genre un outil de mesure de courant / tension a voir 
           \end{itemize}
     \item \textbf{Option économique :}
           \begin{itemize}
-              \item \href{https://hackaday.io/project/181265-diy-cispr-25-lisn}{LISN DIY} : Construction d’un LISN avec GNU Radio.
+              \item \href{https://hackaday.io/project/181265-diy-cispr-25-lisn}{LISN DIY} : Construction d’un LISN à faible coût.
+              \item % same thing here, a voir pour un outil de mesure de courant / tension
           \end{itemize}
 \end{itemize}
 
@@ -144,11 +189,19 @@ Pour garantir la conformité avec les normes CEM, il est nécessaire de réalise
 \begin{itemize}
     \item \textbf{Option coûteuse :}
           \begin{itemize}
-              \item \href{https://www.keysight.com/us/en/assets/7018-05702/technical-overviews/5992-2241.pdf}{Générateur de signal Rohde \& Schwarz} : Outil avancé pour les tests d’immunité.
+              \item \href{https://www.keysight.com/us/en/assets/7018-05702/technical-overviews/5992-2241.pdf}{Générateur de signal Rohde \& Schwarz}
+              \item \href{}{} % antenne pour les tests d'immunité
+              \item \href{https://www.schloeder-emc.com/emc-products/emc-test-and-measurement-system/esd-simulators/esd-simulator-165-kv.html}{Genérateur ESD} % generateur ESD
+              \item \href{}{} % transient generator (voltage surge)
+                    %https://www.emc-directory.com/community/what-is-cispr-35_14
+                    %https://www.perplexity.ai/search/with-the-emc-directive-what-te-C87OInrkSdGRJ9UkkdSjQA
           \end{itemize}
     \item \textbf{Option économique :}
           \begin{itemize}
               \item \href{https://www.crowdsupply.com/era-instruments/erasynth-micro}{ESD Gun DIY} : Générateur ESD à faible coût.
+              \item \href{}{} %gen rf pas cher / hackrf ? 
+              \item \href{}{} %antenne DIY
+              \item \href{}{} % transient generator DIY
           \end{itemize}
 \end{itemize}
 
@@ -157,12 +210,12 @@ Pour garantir la conformité avec les normes CEM, il est nécessaire de réalise
 \subsection{Directive RED}
 Pour chaque norme, voici les tests requis et les équipements recommandés pour les réaliser.
 
-\subsubsection{EN 301 489-1 : Exigences Générales de CEM}
+\subsubsection{EN 301 489-1 : Exigences Générales de CEM} % a verifer si c'est bien la norme pour les tests de CEM dans la norme RED 
 \subsubsection*{Tests Requis :}
 \begin{itemize}
-    \item \textbf{Émissions rayonnées} : Vérifie les émissions dans le spectre radio.
+    \item \textbf{Émissions rayonnées} : Vérifie que les émissions électromagnétiques restent dans les limites autorisées.
     \item \textbf{Immunité rayonnée} : Vérifie la résistance aux interférences électromagnétiques.
-    \item \textbf{Émissions conduites} : Vérifie les perturbations transmises par les câbles.
+    \item \textbf{Émissions conduites} : Vérifie les perturbations transmises par les câbles, quelles qu'ils soient, restent dans les limites autorisées.
 \end{itemize}
 
 \subsubsection*{Équipements :}
@@ -182,7 +235,7 @@ Pour chaque norme, voici les tests requis et les équipements recommandés pour 
 \subsubsection{EN 301 489-17 : Exigences pour Wi-Fi et Bluetooth}
 \subsubsection*{Tests Requis :}
 \begin{itemize}
-    \item \textbf{Brouillage du récepteur} : Vérifie le fonctionnement en présence de signaux forts.
+    \item \textbf{Tests d'Immunité} : Vérifie le fonctionnement d'un fort champ électromagnétique.
     \item \textbf{Émissions parasites} : Vérifie que l’appareil n’émet pas en dehors de sa bande allouée.
 \end{itemize}
 
@@ -191,10 +244,12 @@ Pour chaque norme, voici les tests requis et les équipements recommandés pour 
     \item \textbf{Option coûteuse :}
           \begin{itemize}
               \item Analyseur de spectre Rohde \& Schwarz FSW (\href{https://www.rohde-schwarz.com/product/FSW.html}{FSW}).
+              \item %antennes à mettre
           \end{itemize}
     \item \textbf{Option économique :}
           \begin{itemize}
-              \item RTL-SDR (\href{https://www.rtl-sdr.com/}{Lien officiel}).
+              \item HackRF One (\href{https://greatscottgadgets.com/hackrf/one/}{Lien officiel}).
+              \item % antennes à mettre aussi 
           \end{itemize}
 \end{itemize}
 
